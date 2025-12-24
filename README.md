@@ -52,17 +52,29 @@ Consumers never see partial or invalid state.
 ## Example Usage
 
 ```csharp
-var provider = new ConfigurationProvider<AppConfig>("./AppConfig.json");
+// See https://aka.ms/new-console-template for more information
+using ConfigHotReloadEngine;
+
+var provider = new ConfigurationProvider("./AppConfig.json");
 
 provider.OnChange(config =>
 {
-    foreach (var prop in typeof(AppConfig).GetProperties())
+    foreach (var kvp in config.AsObject())
     {
-        var value = prop.GetValue(config);
-        Console.WriteLine($"{prop.Name}: {value}");
+        Console.WriteLine($"{kvp.Key}: {kvp.Value}");
     }
     Console.WriteLine("---- Configuration Reloaded ----");
 });
+
+// Print initial config
+// Print initial config
+foreach (var kvp in provider.Current.AsObject())
+{
+    Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+}
+
+await Process.Start();
+
 ```
 
 ## ASP.NET Core example
