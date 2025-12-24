@@ -1,0 +1,9 @@
+{
+  "ServerName": "MyApp",
+  "MaxConnections": 100,
+  "EnableMetrics": true,
+  "RefreshIntervalSeconds": 30,
+  "NewFeatureFlag": false,
+  "ApiEndpoint": "https://api.myapp.com/v1/",
+  "schema": "1.0.2"
+}
