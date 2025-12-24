@@ -51,6 +51,11 @@ Consumers never see partial or invalid state.
 
 ## Example Usage
 
+1. ```dotnet add package ConfigHotReloadEngine```
+
+2. Create an AppConfig.json in the root of your project.
+
+3. 
 ```csharp
 // See https://aka.ms/new-console-template for more information
 using ConfigHotReloadEngine;
